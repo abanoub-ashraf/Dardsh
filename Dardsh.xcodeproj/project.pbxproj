@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661EA828E7546B6E283B9C3D /* Pods_Dardsh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C198AE3A0C7AE19D8DBA8ED /* Pods_Dardsh.framework */; };
 		C882934F28E080D5009EFB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882934E28E080D5009EFB99 /* AppDelegate.swift */; };
 		C882935128E080D5009EFB99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882935028E080D5009EFB99 /* SceneDelegate.swift */; };
 		C882935328E080D5009EFB99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882935228E080D5009EFB99 /* ViewController.swift */; };
 		C882935628E080D5009EFB99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C882935428E080D5009EFB99 /* Main.storyboard */; };
 		C882935828E080D7009EFB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882935728E080D7009EFB99 /* Assets.xcassets */; };
 		C882935B28E080D7009EFB99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C882935928E080D7009EFB99 /* LaunchScreen.storyboard */; };
+		C882936328E09431009EFB99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C882936228E09431009EFB99 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F661C965FC9CE5D90A5C3BA /* Pods-Dardsh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dardsh.release.xcconfig"; path = "Target Support Files/Pods-Dardsh/Pods-Dardsh.release.xcconfig"; sourceTree = "<group>"; };
+		9C198AE3A0C7AE19D8DBA8ED /* Pods_Dardsh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dardsh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882934B28E080D5009EFB99 /* Dardsh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dardsh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882934E28E080D5009EFB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C882935028E080D5009EFB99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		C882935728E080D7009EFB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C882935A28E080D7009EFB99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C882935C28E080D7009EFB99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C882936228E09431009EFB99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F4F83FC43882510EDA67AADA /* Pods-Dardsh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dardsh.debug.xcconfig"; path = "Target Support Files/Pods-Dardsh/Pods-Dardsh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661EA828E7546B6E283B9C3D /* Pods_Dardsh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				C882934D28E080D5009EFB99 /* Dardsh */,
 				C882934C28E080D5009EFB99 /* Products */,
+				DD3F9C283BBBD6A8EFD5FDD0 /* Pods */,
+				E083D4534EF7BC920B247462 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,26 @@
 				C882935728E080D7009EFB99 /* Assets.xcassets */,
 				C882935928E080D7009EFB99 /* LaunchScreen.storyboard */,
 				C882935C28E080D7009EFB99 /* Info.plist */,
+				C882936228E09431009EFB99 /* GoogleService-Info.plist */,
 			);
 			path = Dardsh;
+			sourceTree = "<group>";
+		};
+		DD3F9C283BBBD6A8EFD5FDD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4F83FC43882510EDA67AADA /* Pods-Dardsh.debug.xcconfig */,
+				1F661C965FC9CE5D90A5C3BA /* Pods-Dardsh.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E083D4534EF7BC920B247462 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C198AE3A0C7AE19D8DBA8ED /* Pods_Dardsh.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C882935F28E080D7009EFB99 /* Build configuration list for PBXNativeTarget "Dardsh" */;
 			buildPhases = (
+				2D472C2790A30F1E2E582571 /* [CP] Check Pods Manifest.lock */,
 				C882934728E080D5009EFB99 /* Sources */,
 				C882934828E080D5009EFB99 /* Frameworks */,
 				C882934928E080D5009EFB99 /* Resources */,
+				27C69E6AEE051EAC8B49FCDE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				C882935B28E080D7009EFB99 /* LaunchScreen.storyboard in Resources */,
+				C882936328E09431009EFB99 /* GoogleService-Info.plist in Resources */,
 				C882935828E080D7009EFB99 /* Assets.xcassets in Resources */,
 				C882935628E080D5009EFB99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27C69E6AEE051EAC8B49FCDE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dardsh/Pods-Dardsh-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dardsh/Pods-Dardsh-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dardsh/Pods-Dardsh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D472C2790A30F1E2E582571 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dardsh-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C882934728E080D5009EFB99 /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		C882936028E080D7009EFB99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4F83FC43882510EDA67AADA /* Pods-Dardsh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +383,7 @@
 		};
 		C882936128E080D7009EFB99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F661C965FC9CE5D90A5C3BA /* Pods-Dardsh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
