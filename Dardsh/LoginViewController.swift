@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -31,7 +32,12 @@ class LoginViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func forgotPasswordButtonClicked(_ sender: UIButton) {
-        print("forget password button...")
+        if isDataInputedFor(mode: isLogin ? "login" : "register") {
+            print("Data is inputed correctly")
+            // TODO: - login or register
+        } else {
+            ProgressHUD.showError("All fields are required!")
+        }
     }
     
     @IBAction func resendEmailButtonClicked(_ sender: UIButton) {
@@ -39,11 +45,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonClicked(_ sender: UIButton) {
-        print("register button...")
+        if isDataInputedFor(mode: "forgetPassword") {
+            print("Data is inputed correctly")
+            // TODO: - reset password
+        } else {
+            ProgressHUD.showError("All fields are required!")
+        }
     }
     
     ///
-    /// <# Comment #>
+    /// for updating the ui when switching between log in and register
     ///
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         updateUIMode(mode: isLogin)
@@ -72,6 +83,13 @@ class LoginViewController: UIViewController {
         }
         
         forgetPasswordButton.isHidden = true
+        
+        registerLoginButton.layer.cornerRadius = 8
+        
+        ///
+        /// for adding a gesture to the view to hide the keyboard whenever it's visible
+        ///
+        setupBackgroundTap()
     }
     
     private func updateUIMode(mode: Bool) {
@@ -98,7 +116,38 @@ class LoginViewController: UIViewController {
         
         isLogin.toggle()
     }
+    
+    ///
+    /// for validating the user inputs
+    ///
+    private func isDataInputedFor(mode: String) -> Bool {
+        switch mode {
+            case "login":
+                return emailTextField.text != "" && passwordTextField.text != ""
+            case "register":
+                return emailTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != ""
+            case "forgetPassword":
+                return emailTextField.text != ""
+            default:
+                return false
+        }
+    }
+    
+    private func setupBackgroundTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
 
+}
+
+// MARK: - Selectors
+
+extension LoginViewController {
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(false)
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate
