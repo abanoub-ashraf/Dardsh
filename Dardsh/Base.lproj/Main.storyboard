@@ -161,12 +161,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomLoginButton" destination="Py4-5X-Ukd" id="4iW-d5-IwN"/>
                         <outlet property="confirmPasswordLabel" destination="Rd7-8z-ybl" id="Zwj-dQ-nU2"/>
                         <outlet property="confirmPasswordTextField" destination="D0g-PK-7VF" id="o7k-jG-fK4"/>
                         <outlet property="emailLabel" destination="bhY-lc-xHu" id="MpZ-m1-Rz6"/>
                         <outlet property="emailTextField" destination="RsY-s1-vI7" id="bVr-Gn-v76"/>
+                        <outlet property="forgetPasswordButton" destination="cPK-Wg-BMc" id="SVH-rv-Ejf"/>
+                        <outlet property="haveAnAccountLabel" destination="dFN-cM-6PJ" id="ciY-cr-BOj"/>
                         <outlet property="passwordLabel" destination="rKt-eF-f9P" id="UTO-Qi-e2j"/>
                         <outlet property="passwordTextField" destination="S3Q-6j-mev" id="YTy-gI-cOA"/>
+                        <outlet property="registerLoginButton" destination="YUN-z6-WUa" id="bZs-Yd-zvn"/>
+                        <outlet property="resendEmailButton" destination="sAx-w3-tZC" id="GQU-2P-Glf"/>
                         <outlet property="titleLabel" destination="feX-HV-rCy" id="cRQ-uS-Ny5"/>
                     </connections>
                 </viewController>
