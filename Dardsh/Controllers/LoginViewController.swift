@@ -32,9 +32,9 @@ class LoginViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func forgotPasswordButtonClicked(_ sender: UIButton) {
-        if isDataInputedFor(mode: isLogin ? "login" : "register") {
+        if isDataInputedFor(mode: "forgetPassword") {
             print("Data is inputed correctly")
-            // TODO: - login or register
+            // TODO: - reset password
         } else {
             ProgressHUD.showError("All fields are required!")
         }
@@ -45,9 +45,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonClicked(_ sender: UIButton) {
-        if isDataInputedFor(mode: "forgetPassword") {
-            print("Data is inputed correctly")
-            // TODO: - reset password
+        if isDataInputedFor(mode: isLogin ? "login" : "register") {
+            isLogin ? loginUser() : registerUser()
         } else {
             ProgressHUD.showError("All fields are required!")
         }
@@ -136,6 +135,22 @@ class LoginViewController: UIViewController {
     private func setupBackgroundTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func registerUser() {
+        if passwordTextField.text == confirmPasswordTextField.text {
+            FUserListener.shared.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!) { error in
+                if error == nil {
+                    ProgressHUD.showSuccess("Verification email's been sent! please verify your email :)")
+                } else {
+                    ProgressHUD.showError(error!.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    private func loginUser() {
+        
     }
 
 }
