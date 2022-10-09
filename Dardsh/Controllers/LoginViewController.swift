@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func forgotPasswordButtonClicked(_ sender: UIButton) {
         if isDataInputedFor(mode: "forgetPassword") {
-            // TODO: - reset password
+            forgetPassword()
         } else {
             ProgressHUD.showError("All fields are required!")
         }
@@ -180,6 +180,16 @@ class LoginViewController: UIViewController {
         FUserListener.shared.resendVerificationEmailWith(email: emailTextField.text!) { error in
             if error == nil {
                 ProgressHUD.showSuccess("Verificatin email is Sent")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
+    }
+    
+    private func forgetPassword() {
+        FUserListener.shared.resetPasswordFor(email: emailTextField.text!) { error in
+            if error == nil {
+                ProgressHUD.showSuccess("Reset Password email has been sent")
             } else {
                 ProgressHUD.showError(error!.localizedDescription)
             }

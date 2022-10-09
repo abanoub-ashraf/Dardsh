@@ -86,6 +86,15 @@ class FUserListener {
         })
     }
     
+    ///
+    /// if the user forget their password and wanna get an email for password reset
+    ///
+    func resetPasswordFor(email: String, onCompleted: @escaping (_ error: Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            onCompleted(error)
+        }
+    }
+    
     func saveUserToFirestore(_ user: UserModel) {
         do {
             ///
