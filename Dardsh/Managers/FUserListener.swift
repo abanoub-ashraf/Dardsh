@@ -69,6 +69,23 @@ class FUserListener {
         }
     }
     
+    ///
+    /// if the user wanna have a verification email again for some reason
+    ///
+    func resendVerificationEmailWith(email: String, onCompleted: @escaping (_ error: Error?) -> Void) {
+        ///
+        /// reload the current user data from the server first
+        ///
+        Auth.auth().currentUser?.reload(completion: { error in
+            ///
+            /// then send email verification to that user
+            ///
+            Auth.auth().currentUser?.sendEmailVerification(completion: { error in
+                onCompleted(error)
+            })
+        })
+    }
+    
     func saveUserToFirestore(_ user: UserModel) {
         do {
             ///
