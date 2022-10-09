@@ -52,6 +52,23 @@ class FUserListener {
         }
     }
     
+    ///
+    /// extra param to inform the ui that the user's verified their email
+    ///
+    func loginUserWith(email: String, password: String, onCompleted: @escaping (_ error: Error?, _ isEmailVerified: Bool) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if error == nil && authResult!.user.isEmailVerified {
+                onCompleted(error, true)
+                ///
+                /// when wew login we need to get the user stored in firebase and save it locally
+                ///
+                self.downloadUserFromFirestore(userId: authResult!.user.uid)
+            } else {
+                onCompleted(error, false)
+            }
+        }
+    }
+    
     func saveUserToFirestore(_ user: UserModel) {
         do {
             ///
@@ -64,4 +81,30 @@ class FUserListener {
         }
     }
     
+    private func downloadUserFromFirestore(userId: String) {
+        firestoreReference(.User).document(userId).getDocument { document, error in
+            guard let userDocument = document else {
+                print("no data found")
+                return
+            }
+            
+            let result = Result {
+                ///
+                /// this is possible because the FirebaseFirestoreSwift pod we installed
+                ///
+                try? userDocument.data(as: UserModel.self)
+            }
+            
+            switch result {
+                case .success(let userObject):
+                    if let user = userObject {
+                        saveUserLocally(user)
+                    } else {
+                        print("document doesn't exist")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
 }

@@ -92,7 +92,9 @@ class LoginViewController: UIViewController {
     }
     
     private func updateUIMode(mode: Bool) {
-        // if the mode is not register
+        ///
+        /// if the mode is not register
+        ///
         if !mode {
             titleLabel.text = "Login"
             confirmPasswordLabel.isHidden = true
@@ -150,7 +152,30 @@ class LoginViewController: UIViewController {
     }
     
     private func loginUser() {
-        
+        FUserListener.shared.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { error, isEmailVerified in
+            ///
+            /// if no error, check the email verification
+            ///
+            if error == nil {
+                ///
+                /// if user's email is verified, then go to the app
+                ///
+                if isEmailVerified {
+                    // TODO: - go to the application
+                    print("welcome to the app")
+                } else {
+                    ///
+                    /// if not verified, tell the user to check their email
+                    ///
+                    ProgressHUD.showError("Please check your email and verify your registeration!")
+                }
+            } else {
+                ///
+                /// if there's an error, show it to the user
+                ///
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
     }
 
 }
